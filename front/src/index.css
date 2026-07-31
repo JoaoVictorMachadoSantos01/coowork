@@ -1,0 +1,352 @@
+:root {
+  --color-primary: #7c3aed;
+  --color-primary-hover: #6d28d9;
+  --color-primary-soft: #f2ecfd;
+
+  --color-success: #2e7d32;
+  --color-success-hover: #256428;
+  --color-success-soft: #e8f5e9;
+
+  --color-danger: #d32f2f;
+  --color-danger-hover: #b71c1c;
+  --color-danger-soft: #fdecea;
+
+  --color-warning: #e65100;
+  --color-warning-soft: #fff3e0;
+
+  --color-bg: #f7f6fb;
+  --color-surface: #ffffff;
+  --color-border: #e6e4ec;
+  --color-text: #1f1b2e;
+  --color-text-muted: #6b6577;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  --shadow-sm: 0 1px 3px rgba(31, 20, 55, 0.06), 0 1px 2px rgba(31, 20, 55, 0.04);
+  --shadow-md: 0 12px 28px rgba(31, 20, 55, 0.1), 0 4px 10px rgba(31, 20, 55, 0.06);
+
+  --font-sans: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #a78bfa;
+    --color-primary-hover: #c4b5fd;
+    --color-primary-soft: rgba(167, 139, 250, 0.16);
+
+    --color-success: #4caf50;
+    --color-success-hover: #66bb6a;
+    --color-success-soft: rgba(76, 175, 80, 0.16);
+
+    --color-danger: #ef5350;
+    --color-danger-hover: #e57373;
+    --color-danger-soft: rgba(239, 83, 80, 0.16);
+
+    --color-warning: #ffb74d;
+    --color-warning-soft: rgba(255, 183, 77, 0.14);
+
+    --color-bg: #131217;
+    --color-surface: #1c1b22;
+    --color-border: #322f3b;
+    --color-text: #f1eef7;
+    --color-text-muted: #a39cb0;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.45);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100svh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-text);
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 8px;
+}
+
+h1 {
+  font-size: 1.85rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ---------- primitivos compartilhados entre as páginas ---------- */
+
+.campo {
+  margin-bottom: 16px;
+}
+
+.campo label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+.campo input {
+  width: 100%;
+  padding: 11px 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.campo input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+.campo input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+
+.campo input:disabled {
+  opacity: 0.6;
+}
+
+.erro {
+  color: var(--color-danger);
+  font-size: 0.8rem;
+  margin-top: 4px;
+  display: block;
+}
+
+.alerta {
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+}
+
+.sucesso {
+  background: var(--color-success-soft);
+  color: var(--color-success);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+}
+
+.botao,
+.botaoSecundario,
+.botaoPerigo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 11px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s, transform 0.1s;
+}
+
+.botao:active:not(:disabled),
+.botaoSecundario:active:not(:disabled),
+.botaoPerigo:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.botao {
+  color: #fff;
+  background: var(--color-primary);
+}
+
+.botao:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.botao:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.botaoLargo {
+  width: 100%;
+}
+
+.botaoSecundario {
+  padding: 9px 16px;
+  font-size: 0.9rem;
+  color: var(--color-primary);
+  background: var(--color-surface);
+  border-color: var(--color-primary);
+}
+
+.botaoSecundario:hover:not(:disabled) {
+  background: var(--color-primary-soft);
+}
+
+.botaoPerigo {
+  padding: 9px 16px;
+  font-size: 0.9rem;
+  color: var(--color-danger);
+  background: var(--color-surface);
+  border-color: var(--color-danger);
+}
+
+.botaoPerigo:hover:not(:disabled) {
+  background: var(--color-danger-soft);
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+  padding: 2px 9px;
+  border-radius: 999px;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.statusPendente {
+  background: var(--color-warning-soft);
+  color: var(--color-warning);
+}
+
+.statusConfirmada {
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.statusCancelada {
+  background: var(--color-border);
+  color: var(--color-text-muted);
+}
+
+/* container padrão de página */
+.pagina {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+}
+
+/* páginas de autenticação (login/cadastro): card centralizado */
+.paginaAuth {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.authCard {
+  width: 100%;
+  max-width: 400px;
+  padding: 32px;
+}
+
+.authCard h1 {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.subtitulo {
+  color: var(--color-text-muted);
+  margin-bottom: 24px;
+}
+
+.rodape {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 480px) {
+  .authCard {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .pagina {
+    padding: 20px 16px 40px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}

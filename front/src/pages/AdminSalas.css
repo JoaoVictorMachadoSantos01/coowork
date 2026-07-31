@@ -1,0 +1,38 @@
+.formSala {
+  padding: 24px;
+  margin-bottom: 28px;
+  max-width: 400px;
+}
+
+.formSala h2 {
+  margin-bottom: 20px;
+}
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.adminSalas .card {
+  padding: 18px;
+}
+
+.adminSalas .card p {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 480px) {
+  .formSala {
+    max-width: none;
+  }
+}

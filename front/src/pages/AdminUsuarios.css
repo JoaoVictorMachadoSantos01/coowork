@@ -1,0 +1,26 @@
+.lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.adminUsuarios .card {
+  padding: 18px;
+}
+
+.adminUsuarios .card h2 {
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.adminUsuarios .card p {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-top: 2px;
+}
+
+.adminUsuarios .botaoPerigo {
+  margin-top: 12px;
+}

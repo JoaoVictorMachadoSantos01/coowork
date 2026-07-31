@@ -1,0 +1,85 @@
+
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Usuario {
+
+  id Int @id @default(autoincrement())
+
+  nome String 
+
+  email String @unique 
+
+  cpf String @unique
+
+  senha String 
+
+  datadecriacao DateTime @default(now()) @map("data_de_criacao") 
+
+  isAdmin   Boolean   @default(false) @map("e_admin")
+
+  reservas Reserva[]
+
+@@map ("Usuarios")
+
+
+}
+
+model Sala {
+
+  id Int @id @default(autoincrement())
+
+  nome String @unique
+
+  preco Float @map("preco_locacao")
+
+
+  capacidade Int
+
+  descricao String?
+
+  dataDeCriacao DateTime @default(now()) @map("data_de_criacao") 
+
+  reservas Reserva[]
+
+  @@map ("Salas")
+}
+
+
+model Reserva {
+
+  id Int @id @default(autoincrement())
+
+  diaDaReserva DateTime
+
+  turno String
+
+  dataDeCriacao DateTime @default(now()) @map("data_de_criacao") 
+
+  idDoUser Int @map("id_doUsuario")
+
+  usuario     Usuario   @relation(fields: [idDoUser], references: [id])
+
+  idDaSala Int @map("id_daSala")
+
+  sala Sala @relation(fields : [idDaSala], references: [id] , onDelete : Restrict) //impedir deletar sala que tenha reservas
+
+  expireAt DateTime?
+
+  status String @default("pendente")
+
+@@index([idDaSala, diaDaReserva, turno])
+
+@@index([status, expireAt])
+
+@@index([idDoUser])
+
+@@map("Reservas")
+}
