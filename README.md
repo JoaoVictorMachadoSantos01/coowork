@@ -276,28 +276,28 @@ O acesso às rotas protegidas é controlado pelo componente `RotaProtegida`, e a
 
 ```
 ┌───────────────────┐          ┌───────────────────┐
-│      Usuario        │          │        Sala          │
+│      Usuario      │          │        Sala       │
 ├───────────────────┤          ├───────────────────┤
-│ id (PK)              │          │ id (PK)               │
-│ nome                 │          │ nome (UNIQUE)         │
-│ email (UNIQUE)       │          │ preco                 │
-│ cpf (UNIQUE)         │          │ capacidade            │
-│ senha (hash)         │          │ descricao             │
-│ isAdmin              │          │ dataDeCriacao         │
-│ dataDeCriacao        │          └─────────┬─────────┘
+│ id (PK)           │          │ id (PK)           │
+│ nome              │          │ nome (UNIQUE)     │
+│ email (UNIQUE)    │          │ preco             │
+│ cpf (UNIQUE)      │          │ capacidade        │
+│ senha (hash)      │          │ descricao         │
+│ isAdmin           │          │ dataDeCriacao     │
+│ dataDeCriacao     │          └─────────┬─────────┘
 └─────────┬─────────┘                    │
-          │                                │
+          │                              │
           │            ┌───────────────────┐
-          └───────────►│      Reserva         │◄──────────┘
+          └───────────►│      Reserva      │
                        ├───────────────────┤
-                       │ id (PK)               │
-                       │ idDoUser (FK)         │
-                       │ idDaSala (FK)         │
-                       │ diaDaReserva          │
-                       │ turno                 │
-                       │ status                │
-                       │ expireAt              │
-                       │ dataDeCriacao         │
+                       │ id (PK)           │
+                       │ idDoUser (FK)     │
+                       │ idDaSala (FK)     │
+                       │ diaDaReserva      │
+                       │ turno             │
+                       │ status            │
+                       │ expireAt          │
+                       │ dataDeCriacao     │
                        └───────────────────┘
 ```
 
