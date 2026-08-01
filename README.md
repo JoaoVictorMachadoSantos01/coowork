@@ -349,15 +349,7 @@ npm run lint                # Executa o linter
 - ✅ **CORS restrito** — origens definidas via `FRONTEND_URL`
 - ✅ **Validação de entrada** nos controllers (nome, e-mail, senha, CPF)
 
-### 🎯 Recomendações Futuras
 
-- [ ] Adicionar testes automatizados
-- [ ] Rate limiting nas rotas de autenticação
-- [ ] Refresh token / expiração e renovação de sessão
-- [ ] Job/cron para limpeza de reservas expiradas
-- [ ] CI/CD pipeline
-
----
 
 ## 🐛 Solução de Problemas
 
@@ -400,6 +392,7 @@ npx prisma migrate reset   # ⚠️ apaga os dados do banco
 **João Victor Machado Santos**
 
 - GitHub: [@JoaoVictorMachadoSantos01](https://github.com/JoaoVictorMachadoSantos01)
+- youtube : (https://www.youtube.com/@joaoFuturo-dev)
 - Repositório: [github.com/JoaoVictorMachadoSantos01/coowork](https://github.com/JoaoVictorMachadoSantos01/coowork)
 
 ---
